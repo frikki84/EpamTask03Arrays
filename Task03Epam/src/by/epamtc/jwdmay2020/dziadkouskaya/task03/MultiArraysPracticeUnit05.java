@@ -7,16 +7,11 @@ public class MultiArraysPracticeUnit05 {
 	public static void main(String[] args) {
 		int[][] matrix1 = { { 1, 2, 3, 6 }, { 1, 2, 4, 6 }, { 0, 7, 8, 6 }, { 1, 1, -1, -1 } };
 
-		int[][] matrix2 = { { 2, 1 }, { 3, 4 }, { 5, 4 }, { 1, 2 } };
+		int[][] matrix2 = { { 2, 1 }, { 3, 4 }, { 5, 4 } , {4, 5}};
 
-		int[][] resultMatrix = calculateTwoMatrixMultiplication(matrix1, matrix2);
-
-		for (int i = 0; i < resultMatrix.length; i++) {
-			for (int j = 0; j < resultMatrix[i].length; j++) {
-				System.out.print(resultMatrix[i][j] + " ");
-			}
-			System.out.println("\n");
-		}
+		String result = showMatrixMultiplicationAnswer(matrix1, matrix2);
+		
+		System.out.println(result);
 	}
 
 	public static int[][] calculateTwoMatrixMultiplication(int[][] matrix1, int[][] matrix2) {
@@ -39,6 +34,24 @@ public class MultiArraysPracticeUnit05 {
 			}
 		}
 		return resultMatrix;
+	}
+	
+	public static String showMatrixMultiplicationAnswer(int[][] matrix1, int[][] matrix2) {
+		int [][] resultMatrix = calculateTwoMatrixMultiplication(matrix1, matrix2);
+		String result = "Decision is \n";
+		
+		if (resultMatrix != null) {
+			for (int i = 0; i < resultMatrix.length; i++) {
+				for (int j = 0; j < resultMatrix[i].length; j++) {
+					result += resultMatrix[i][j] + " ";
+				}
+				result += "\n";
+			}
+		} else {
+			result = "No decisions";
+		}
+		
+		return result;
 	}
 
 }
